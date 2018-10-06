@@ -84,7 +84,7 @@ it provides a simulator where we can acquire the data as much as we needed, ther
 instead of experimenting much with the network. First of all, I tried to use the NVIDIA network architecture introduced on the deep learning lesson as my initial network. However,
 I couldn't train the network on my laptop because of the GPU memory limitation on my NVIDIA graphic card. Therefore I tried to reduce the number of weights and biases of the network by
 adding two Max Pooling layer, one before the fully connected layers and one between the 5x5 and 3x3 CNN layers. Unfortunately, this still didn't solve the memory limitation problem on my
-laptop, and so I made the input image smaller by adding one more Max Pooling layer directly after the normalization. This approach worked and then I started to do the data acquisition
+laptop, and so I made the input image smaller by adding one more Max Pooling layer directly after the cropping 2D layer. This approach worked and then I started to do the data acquisition
 using the simulator.
 
 I spent most of the time selecting the data for training, and also because I was working with so many data, the training time was much longer than the training time for the Traffic Sign
@@ -98,11 +98,46 @@ is able to drive autonomously around the track without leaving the road.
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (behaviour-cloning.py lines 109-126) consisted of a convolution neural network with the following layers:
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+My final model consisted of the following layers:
 
-![alt text][image1]
+**CNN**
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 160x320x3 RGB image   						| 
+| NORMALIZATION     	|                            	                |
+| Cropping 2D        	| 50 from top, 20 from bottom 	                |
+| Max pooling	      	| 2x2 stride,  outputs 80x160x3 				|
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 76x156x24 	|
+| RELU					|												|
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 72x152x36 	|
+| RELU					|												|
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 68x148x48 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 34x74x48 				|
+| Convolution 3x3     	| 1x1 stride, valid padding, outputs 30x70x64 	|
+| RELU					|												|
+| Convolution 3x3     	| 1x1 stride, valid padding, outputs 26x66x64 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 13x33x64 				|
+
+**Fully connected layer**
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 27456 Flattened output of CNN   		        | 
+| Fully connected		| 1164 output        							|
+| RELU					|												|
+| Fully connected		| 100 output        							|
+| RELU					|												|
+| Fully connected		| 50 output        							    |
+| RELU					|												|
+| Fully connected		| 10 output        							    |
+| RELU					|												|
+| Fully connected		| 1 output        							    |
+| Mean Square Error		|           									|
 
 #### 3. Creation of the Training Set & Training Process
 
