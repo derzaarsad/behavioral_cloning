@@ -79,35 +79,21 @@ For details about how I created the training data, see the next section.
 #### 1. Solution Design Approach
 
 On the previous project for this Self-Driving Car Nanodegree which was the Traffic Sign Classifier, I spent most of the time experimenting with the network architecture, not only
-
 because it was required, but also because on that project I could only get more training data easily through data augmentation. This Behavioral Cloning project is different because
-
 it provides a simulator where we can acquire the data as much as we needed, therefore on this project I wanted to focus more on the training data acquisition to combat the overfitting
-
 instead of experimenting much with the network. First of all, I tried to use the NVIDIA network architecture introduced on the deep learning lesson as my initial network. However,
-
 I couldn't train the network on my laptop because of the GPU memory limitation on my NVIDIA graphic card. Therefore I tried to reduce the number of weights and biases of the network by
-
 adding two Max Pooling layer, one before the fully connected layers and one between the 5x5 and 3x3 CNN layers. Unfortunately, this still didn't solve the memory limitation problem on my
-
 laptop, and so I made the input image smaller by adding one more Max Pooling layer directly after the normalization. This approach worked and then I started to do the data acquisition
-
 using the simulator.
 
 I spent most of the time selecting the data for training, and also because I was working with so many data, the training time was much longer than the training time for the Traffic Sign
-
 Classifier, therefore it was also not easy to only use more data to combat overfitting. At one time, I felt that my network suffered from overfitting because the validation set error
-
 stayed in the 1e-2 region while the training set error slowly became much smaller, and so I used dropout with the intention to regularize the network, however, the network performed much
-
 worse, therefore I used an early breakup instead of dropout so that the network is not too optimized for the training data. I didn't change the architecture quite much from the initial design,
-
 because I saw that the network performed quite well with a "dirty" training data that I acquired by myself. And also the training time was very long that I could not easily make a small change
-
 to fine tune the network because of the time limitation that I had. After I reached a level where the network works quite well with the mentioned architecture and an early breakup, I iteratively
-
 approached the solution by training, analyzing the result, adding more data and then trained the network again until the simulated car can drive very well. At the end of the process, the vehicle
-
 is able to drive autonomously around the track without leaving the road.
 
 #### 2. Final Model Architecture
