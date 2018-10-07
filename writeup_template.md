@@ -117,17 +117,17 @@ My final model consisted of the following layers:
 | Convolution 5x5     	| 1x1 stride, valid padding, outputs 68x148x48 	|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 34x74x48 				|
+| Convolution 3x3     	| 1x1 stride, valid padding, outputs 32x72x64 	|
+| RELU					|												|
 | Convolution 3x3     	| 1x1 stride, valid padding, outputs 30x70x64 	|
 | RELU					|												|
-| Convolution 3x3     	| 1x1 stride, valid padding, outputs 26x66x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 13x33x64 				|
+| Max pooling	      	| 2x2 stride,  outputs 15x35x64 				|
 
 **Fully connected layer**
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 27456 Flattened output of CNN   		        | 
+| Input         		| 33600 Flattened output of CNN   		        | 
 | Fully connected		| 1164 output        							|
 | RELU					|												|
 | Fully connected		| 100 output        							|
@@ -137,7 +137,7 @@ My final model consisted of the following layers:
 | Fully connected		| 10 output        							    |
 | RELU					|												|
 | Fully connected		| 1 output        							    |
-| Mean Square Error		|           									|
+| Mean Squared Error	|           									|
 
 #### 3. Creation of the Training Set & Training Process
 
