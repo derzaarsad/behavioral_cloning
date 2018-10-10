@@ -5,69 +5,23 @@ import numpy as np
 from random import shuffle
 import sklearn
 
-postfix = '210918'
+def add_sample_from_file(filename,samples):
+	with open('../driving_log_' + postfix + '.csv') as csvfile:
+		reader = csv.reader(csvfile)
+		for line in reader:
+			if(len(line) > 1):
+				line[0] = line[0].replace("IMG","IMG_" + postfix)
+				samples.append(line)
+	return samples
 
 samples = []
-with open('../driving_log_' + postfix + '.csv') as csvfile:
-	reader = csv.reader(csvfile)
-	for line in reader:
-		if(len(line) > 1):
-			line[0] = line[0].replace("IMG","IMG_" + postfix)
-			samples.append(line)
-
-postfix = 'curvy1'
-
-with open('../driving_log_' + postfix + '.csv') as csvfile:
-	reader = csv.reader(csvfile)
-	for line in reader:
-		if(len(line) > 1):
-			line[0] = line[0].replace("IMG","IMG_" + postfix)
-			samples.append(line)
-
-postfix = 'curvy2'
-
-with open('../driving_log_' + postfix + '.csv') as csvfile:
-	reader = csv.reader(csvfile)
-	for line in reader:
-		if(len(line) > 1):
-			line[0] = line[0].replace("IMG","IMG_" + postfix)
-			samples.append(line)
-
-postfix = 'recovery1'
-
-with open('../driving_log_' + postfix + '.csv') as csvfile:
-	reader = csv.reader(csvfile)
-	for line in reader:
-		if(len(line) > 1):
-			line[0] = line[0].replace("IMG","IMG_" + postfix)
-			samples.append(line)
-
-postfix = '300918'
-
-with open('../driving_log_' + postfix + '.csv') as csvfile:
-	reader = csv.reader(csvfile)
-	for line in reader:
-		if(len(line) > 1):
-			line[0] = line[0].replace("IMG","IMG_" + postfix)
-			samples.append(line)
-
-postfix = 'curve021018'
-
-with open('../driving_log_' + postfix + '.csv') as csvfile:
-	reader = csv.reader(csvfile)
-	for line in reader:
-		if(len(line) > 1):
-			line[0] = line[0].replace("IMG","IMG_" + postfix)
-			samples.append(line)
-
-postfix = 'curve031018'
-
-with open('../driving_log_' + postfix + '.csv') as csvfile:
-	reader = csv.reader(csvfile)
-	for line in reader:
-		if(len(line) > 1):
-			line[0] = line[0].replace("IMG","IMG_" + postfix)
-			samples.append(line)
+samples = add_sample_from_file('../driving_log_210918.csv',samples)
+samples = add_sample_from_file('../driving_log_curvy1.csv',samples)
+samples = add_sample_from_file('../driving_log_curvy2.csv',samples)
+samples = add_sample_from_file('../driving_log_recovery1.csv',samples)
+samples = add_sample_from_file('../driving_log_300918.csv',samples)
+samples = add_sample_from_file('../driving_log_curve021018.csv',samples)
+samples = add_sample_from_file('../driving_log_curve031018.csv',samples)
 
 from sklearn.model_selection import train_test_split
 train_samples, validation_samples = train_test_split(samples, test_size=0.2)

@@ -54,9 +54,9 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+My model consists of a convolution neural network with 5x5 and 3x3 filter sizes and depths between 24, 36, 48 and 64 (model.py lines 63-80) 
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+The model includes RELU layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer (code line 64). 
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -64,7 +64,7 @@ I used only more data to combat overfitting. The model was tested by running it 
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (behaviour-cloning.py line 128).
+The model used an adam optimizer, so the learning rate was not tuned manually (behaviour-cloning.py line 82).
 
 #### 4. Appropriate training data
 
@@ -180,8 +180,9 @@ bottom.
 
 I finally randomly shuffled the data set and put Y% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ...
-I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The training error did not became much lower after the second epoch,
+and the performance in autonomous mode is worse with after the 5th epoch based on my experience, therefore I ended using 3 as an epoch number. I used an adam optimizer so that manually training
+the learning rate wasn't necessary.
 
 After training it for a while, I realized that my effort to manually selecting the good data worth, especially by line avoidance. However, the car still failed to stay in the line
 in some special curve where the line has a special mark. Some of the examples are:
