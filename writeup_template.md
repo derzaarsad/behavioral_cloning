@@ -18,13 +18,18 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./examples/center_2018_09_21_23_41_07_863.jpg "Grayscaling"
+[image2]: ./examples/center_2018_09_22_00_31_53_052.jpg "Line Avoiding Image"
+[image3]: ./examples/center_2018_09_22_00_31_53_128.jpg "Line Avoiding Image"
+[image4]: ./examples/center_2018_09_22_00_31_53_202.jpg "Line Avoiding Image"
+[image5]: ./examples/recovery.gif "Recovery Image"
+[image8]: ./examples/placeholder_small.png "Curve"
+[image9]: ./examples/placeholder_small.png "Curve"
+[image10]: ./examples/placeholder_small.png "Curve"
+[image11]: ./examples/placeholder_small.png "Normal Image"
+[image12]: ./examples/placeholder_small.png "Flipped Image"
+[image13]: ./examples/placeholder_small.png "No Marking Line"
+[image14]: ./examples/placeholder_small.png "No Marking Line"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -145,7 +150,7 @@ data that was caused by my bad driving in the simulator, for example if the car 
 
 image of center lane driving:
 
-![alt text][image2]
+![alt text][image1]
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to correct its movement when it makes a failure.
 
@@ -156,24 +161,28 @@ I divided the training data for the recovery into two distinct properties based 
 
 With this data division, I didn't have to aim for a perfect recovery by data acquisition, which simplify the data acquisition process.
 
-These images show what a recovery looks like starting from ... :
+This image sequence shows an example of line avoiding :
 
+![alt text][image2]
 ![alt text][image3]
 ![alt text][image4]
+
+This animated images shows an example of recovery to the center :
+
 ![alt text][image5]
 
 I also collected training data for a good curve. The image samples are as follow:
 
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+![alt text][image8]
+![alt text][image9]
+![alt text][image10]
 
 To augment the data set, I also flipped the images and their correspondent angles thinking that this would combat overfitting. By mirroring all features on one side to the other side,
 it is expected that the network learns which form does the lines have instead of only learning if some features exist on the left or on the right side of the street. For example, here
 is an image that has then been flipped:
 
-![alt text][image6]
-![alt text][image7]
+![alt text][image11]
+![alt text][image12]
 
 After the collection process, I had X number of data points. I then preprocessed this data by normalizing it, and the cropped the images 50 pixels from top and 20 pixels from the
 bottom.
@@ -187,7 +196,7 @@ the learning rate wasn't necessary.
 After training it for a while, I realized that my effort to manually selecting the good data worth, especially by line avoidance. However, the car still failed to stay in the line
 in some special curve where the line has a special mark. Some of the examples are:
 
-![alt text][image6]
-![alt text][image7]
+![alt text][image13]
+![alt text][image14]
 
 Therefore I collected more data on these curves. After some training and data collection processes, the car can drive itself on track one without going out of the line.
