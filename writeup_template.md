@@ -171,11 +171,8 @@ This animated images shows an example of recovery to the center :
 
 ![alt text][image5]
 
-I also collected training data for a good curve. The image samples are as follow:
-
-![alt text][image8]
-![alt text][image9]
-![alt text][image10]
+I also collected training data for a good curve. I took a combination of using a mouse and using a keyboard and utilized each of the benefit. By using a mouse we can get a smoother curve
+movement whereas by using a keyboard the movement is more sudden and sharp, therefore the keyboard is good for line avoidance.
 
 To augment the data set, I also flipped the images and their correspondent angles thinking that this would combat overfitting. By mirroring all features on one side to the other side,
 it is expected that the network learns which form does the lines have instead of only learning if some features exist on the left or on the right side of the street. For example, here
