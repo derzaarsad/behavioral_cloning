@@ -23,13 +23,9 @@ The goals / steps of this project are the following:
 [image3]: ./examples/center_2018_09_22_00_31_53_128.jpg "Line Avoiding Image"
 [image4]: ./examples/center_2018_09_22_00_31_53_202.jpg "Line Avoiding Image"
 [image5]: ./examples/recovery.gif "Recovery Image"
-[image8]: ./examples/placeholder_small.png "Curve"
-[image9]: ./examples/placeholder_small.png "Curve"
-[image10]: ./examples/placeholder_small.png "Curve"
-[image11]: ./examples/placeholder_small.png "Normal Image"
-[image12]: ./examples/placeholder_small.png "Flipped Image"
-[image13]: ./examples/placeholder_small.png "No Marking Line"
-[image14]: ./examples/placeholder_small.png "No Marking Line"
+[image11]: ./examples/center_2018_10_02_09_09_15_164.jpg "Normal Image"
+[image12]: ./examples/center_2018_10_02_09_09_15_164_flipped.jpg "Flipped Image"
+[image13]: ./examples/center_2018_10_02_09_10_43_732.jpg "No Marking Line"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -82,7 +78,7 @@ For details about how I created the training data, see the next section.
 #### 1. Solution Design Approach
 
 On the previous project for this Self-Driving Car Nanodegree which was the Traffic Sign Classifier, I spent most of the time experimenting with the network architecture, not only
-because it was required, but also because on that project I could only get more training data easily through data augmentation. This Behavioral Cloning project is different because
+because it was required, but also because on that project I could only get more training data easily using data augmentation. This Behavioral Cloning project is different because
 it provides a simulator where we can acquire the data as much as we needed, therefore on this project I wanted to focus more on the training data acquisition to combat the overfitting
 instead of experimenting much with the network. First of all, I tried to use the NVIDIA network architecture introduced on the deep learning lesson as my initial network. However,
 I couldn't train the network on my laptop because of the GPU memory limitation on my NVIDIA graphic card. Therefore I tried to reduce the number of weights and biases of the network by
@@ -194,6 +190,5 @@ After training it for a while, I realized that my effort to manually selecting t
 in some special curve where the line has a special mark. Some of the examples are:
 
 ![alt text][image13]
-![alt text][image14]
 
 Therefore I collected more data on these curves. After some training and data collection processes, the car can drive itself on track one without going out of the line.
