@@ -25,7 +25,8 @@ The goals / steps of this project are the following:
 [image5]: ./examples/recovery.gif "Recovery Image"
 [image11]: ./examples/center_2018_10_02_09_09_15_164.jpg "Normal Image"
 [image12]: ./examples/center_2018_10_02_09_09_15_164_flipped.jpg "Flipped Image"
-[image13]: ./examples/center_2018_10_02_09_10_43_732.jpg "No Marking Line"
+[image13]: ./examples/center_2018_09_30_01_18_39_665.jpg "No Marking Line"
+[image14]: ./examples/center_2018_09_30_01_19_06_102.jpg "No Marking Line"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -36,9 +37,9 @@ The goals / steps of this project are the following:
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
-* model.py containing the script to create and train the model
+* behaviour-cloning.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
-* model.h5 containing a trained convolution neural network 
+* [model.h5](https://drive.google.com/file/d/1j4zrkwpHIVNGlctePSilZOmXHGYK6SUZ/view?usp=sharing) containing a trained convolution neural network 
 * writeup_report.md or writeup_report.pdf summarizing the results
 
 #### 2. Submission includes functional code
@@ -190,5 +191,8 @@ After training it for a while, I realized that my effort to manually selecting t
 in some special curve where the line has a special mark. Some of the examples are:
 
 ![alt text][image13]
+![alt text][image14]
 
 Therefore I collected more data on these curves. After some training and data collection processes, the car can drive itself on track one without going out of the line.
+
+The end result can be seen in this [YouTube Video](https://www.youtube.com/watch?v=Y3x_nO7U6nQ)
